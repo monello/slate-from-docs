@@ -6,6 +6,9 @@ import PropTypes from 'prop-types';
 import { createEditor } from 'slate'
 import { Slate, Editable, withReact } from 'slate-react'
 
+// Utils
+import ErrorBoundary from "../utils/ErrorBoundary";
+
 const Editor = ({ document, onChange, placeholder }) => {
     const editor = useMemo(() => withReact(createEditor()), [])
 
@@ -18,13 +21,15 @@ const Editor = ({ document, onChange, placeholder }) => {
     );
 
     return (
-        <Slate
-            editor={editor}
-            value={document}
-            onChange={onChangeHandler}
-        >
-            <Editable placeholder={placeholder} />
-        </Slate>
+        <ErrorBoundary>
+            <Slate
+                editor={editor}
+                value={document}
+                onChange={onChangeHandler}
+            >
+                <Editable placeholder={placeholder} />
+            </Slate>
+        </ErrorBoundary>
     )
 }
 
