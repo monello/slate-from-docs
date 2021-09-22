@@ -1,5 +1,6 @@
 // React
 import React, { useMemo, useCallback } from 'react'
+import PropTypes from 'prop-types';
 
 // SlateJS
 import { createEditor } from 'slate'
@@ -25,6 +26,22 @@ const Editor = ({ document, onChange, placeholder }) => {
             <Editable placeholder={placeholder} />
         </Slate>
     )
+}
+
+// MRL: Specify the "shape" of the expected date on this component, either using propTypes (as below) or by using TypeScript instead of Vanilla JS
+Editor.propTypes = {
+    /** The document property must be an array of objects */
+    document: PropTypes.arrayOf(PropTypes.object),
+    /** Event to change the document state */
+    onChange: PropTypes.func.isRequired,
+    /** Text to display when the Editor has no content */
+    placeholder: PropTypes.string
+}
+
+// MRL: Describe default values for any props.
+Editor.defaultProps = {
+    document: [{}],
+    placeholder: 'Enter some text...'
 }
 
 export default Editor;

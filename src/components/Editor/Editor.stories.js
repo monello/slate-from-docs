@@ -28,20 +28,17 @@ const Template = args => {
 // MRL: This is where we use .bind() to make a "new" function (copy of the Template function instance)
 export const Blank = Template.bind({})
 Blank.args = {
-    document: BlankDocument,
-    placeholder: 'Enter some text...'
+    document: BlankDocument
 }
 
 // MRL: STORY 2 - Now with pre-filled content
 export const Prefilled = Template.bind({})
 Prefilled.args = {
-    document: SmallDocument,
-    placeholder: 'Enter some text...'
+    document: SmallDocument
 }
 
 // MRL: STORY 3 - some Custom Elements
 export const CustomElements = Template.bind({})
 CustomElements.args = {
-    document: ExampleDocument,
-    placeholder: 'Enter some text...'
+    document: ExampleDocument
 }
