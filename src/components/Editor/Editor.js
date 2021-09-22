@@ -5,7 +5,7 @@ import React, { useMemo, useCallback } from 'react'
 import { createEditor } from 'slate'
 import { Slate, Editable, withReact } from 'slate-react'
 
-const Editor = ({ document, onChange }) => {
+const Editor = ({ document, onChange, placeholder }) => {
     const editor = useMemo(() => withReact(createEditor()), [])
 
     const onChangeHandler = useCallback(
@@ -22,7 +22,7 @@ const Editor = ({ document, onChange }) => {
             value={document}
             onChange={onChangeHandler}
         >
-            <Editable />
+            <Editable placeholder={placeholder} />
         </Slate>
     )
 }

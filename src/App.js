@@ -10,7 +10,7 @@ import ExampleDocument from './utils/ExampleDocuments'
 function App() {
   const [document, updateDocument] = useState(ExampleDocument)
 
-  return <Editor document={document} onChange={updateDocument} />
+  return <Editor document={document} onChange={updateDocument} placeholder='Enter some text' />
 }
 
 export default App;
