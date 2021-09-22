@@ -5,14 +5,12 @@ import React, { useMemo, useState } from 'react'
 import { createEditor } from 'slate'
 import { Slate, Editable, withReact } from 'slate-react'
 
+// Temporary Example Data
+import ExampleDocument from '../../utils/ExampleDocuments'
+
 const Editor = () => {
     const editor = useMemo(() => withReact(createEditor()), [])
-    const [value, setValue] = useState([
-        {
-            type: 'paragraph',
-            children: [{ text: 'A line of text in a paragraph.' }],
-        },
-    ])
+    const [value, setValue] = useState(ExampleDocument)
 
     return (
         <Slate
