@@ -11,7 +11,12 @@ const Editor = () => {
     const editor = useMemo(() => withReact(createEditor()), [])
 
     // Keep track of state for the value of the editor.
-    const [value, setValue] = useState([])
+    const [value, setValue] = useState([
+        {
+            type: 'paragraph',
+            children: [{ text: 'A line of text in a paragraph.' }],
+        },
+    ])
 
     // Render the Slate context.
     // Add the <Editable /> component inside the context.
