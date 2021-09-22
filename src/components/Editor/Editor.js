@@ -13,7 +13,14 @@ const Editor = () => {
     // Keep track of state for the value of the editor.
     const [value, setValue] = useState([])
 
-    return <h1>Hello World</h1>
+    // Render the Slate context.
+    return (
+        <Slate
+            editor={editor}
+            value={value}
+            onChange={newValue => setValue(newValue)}
+        />
+    )
 }
 
 export default Editor;
