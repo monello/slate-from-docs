@@ -14,12 +14,15 @@ const Editor = () => {
     const [value, setValue] = useState([])
 
     // Render the Slate context.
+    // Add the <Editable /> component inside the context.
     return (
         <Slate
             editor={editor}
             value={value}
             onChange={newValue => setValue(newValue)}
-        />
+        >
+            <Editable />
+        </Slate>
     )
 }
 
